@@ -1,0 +1,71 @@
+
+Unsupervised Learning: 1.clustering(group of similar items)
+                       2.Anamolie detection(outliers and inliners)
+                       3.Density Estimation
+
+Ex.Netflix(How backend of this apps recommendation is working)
+*************************************************************************************************************************************
+
+CLUSTERING:
+         1.K-Mean
+         2.Hirarchical
+         3.DBSCAN
+*************************************************************************************************************************************
+K-MEANS
+
+1.Choose the K value
+
+k-centeroid:
+1.Initialize centeroid
+2.compute the nearest data point distance
+3.Find the nearest Data points distance average
+4.Move centroid on the place of average value(when avg values does not change it is center val of cluster loop 2-4 steps)
+-------------------------------------------------------------------------------------|
+Note:If the data is 2d choose k=2 depending on dimension choose k value in real world|
+low dimention use euclidean distance                                                 |
+high dimention,points are spread use Manhattan distance                              |
+-------------------------------------------------------------------------------------|
+How do you choose the k value?(Elbow Method)
+
+=>WCSS-Within cluster sum of squares
+                    Formula=signma[i=1-n](distance of nearest data point from centroid)2
+
+=>choose the k value and calculate the clustering and plot a graph between the k value and wcss you get a elbow like graph
+
+=>k value increase-wcss decrese after some time we get straight points the point where it bends of the k value
+********************************************************************************************************************************************************
+KMEANS++
+
+issue:Random intializaqtion trap(KMEAN++ )-occurs due to random k value
+
+x={distance values}
+x={1,2,3,10,11,12}
+
+
+1.choose the centroid randomly(c1=2)
+2.compute distnace from nearest centroid using (x-c1)2
+       [1,0,1,64,81,100]=247
+3.probabilty calculation
+  
+  p(xi)=D(xi)2 /sigma[i(1-n)](D(xi)2)
+
+  x1=1/247,  x2=1/247, x3=64/247 ,x4=81/247, x5=100/247
+
+Hence Data point 12(x5) highest probability it becomes centroid(c1=12)
+
+4.Run Standard K mean:
+ xi                 |Xi-2|         |Xi-12|    cluster
+ 1                     1              11         1
+ 2                     0              10         1
+ 3                     1               9         1
+ 10                    8               2         2
+ 11                    9               1         2
+ 12                    10              0         2
+
+ **********************************************************************************************************************
+
+ for Feature Sacling
+
+ plot a scatter plot
+ 1.Data has normal distribution-Normalization
+ 2.Standard distribution(right-skewed/left skewed)-Standadization
