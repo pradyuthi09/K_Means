@@ -1,6 +1,6 @@
 
 Unsupervised Learning: 1.clustering(group of similar items)
-                       2.Anamolie detection(outliers and inliners)
+                       2.Anamolie detection(outliers and inliners) ex: in bank in a day more than 1lakh trasation account freezers(outlier)
                        3.Density Estimation
 
 Ex.Netflix(How backend of this apps recommendation is working)
@@ -11,7 +11,7 @@ CLUSTERING:
          2.Hirarchical
          3.DBSCAN
 *************************************************************************************************************************************
-K-MEANS
+K-MEANS:Centroid based algorithm
 
 1.Choose the K value
 

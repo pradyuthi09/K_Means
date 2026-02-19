@@ -1,0 +1,129 @@
+Hierarchical Clustering:
+           
+step1:For each point initially we will consider a seperate cluster
+step2:Find the nearest point and create a new cluster
+step3:keep on doing the process step2 until we get a single cluster
+step4:Make a full big cluster 👉 Dendrogram (cluster tree)
+
+
+A dendrogram is a tree diagram showing how clusters are formed.
+
+Key Idea:
+
+You draw a horizontal line across the dendrogram →
+The number of branches cut = number of clusters.
+
+So unlike K-Means:
+
+K-Means → you give K first
+Hierarchical → you choose K later
+
+
+
+*************************************************************************************
+Types of Hierarchical Clustering:
+
+1.Agglomerative:
+                 👉 Also called Bottom-Up approach
+
+      Working:
+
+           1.Start with each data point as its own cluster
+           2.Find the two closest points
+           3. Merge them
+           4.Again find closest clusters
+           5.Repeat until all points become one big cluster
+
+2.Divisive:
+            👉 Also called Top-Down approach
+   
+    Working:
+
+           1.Start with all data points in one cluster
+           2.Split into 2 clusters
+           3.Split again
+           4.Continue splitting
+
+
+***************************************************************************************************
+LINKAGE:
+
+#Linkage used for the distance between two clustering
+
+
+1.Single Linkage -	nearest points/min distance
+2.Complete Linkage -	farthest points/max distance
+3.Average Linkage -	average distance
+4 Ward Method - minimizes variance (most used in ML) ⭐
+
+     It merges clusters such that increase in variance (error) is minimum.
+
+     Instead of measuring distance directly, it checks:
+
+     “If I merge these two clusters, how much will the cluster spread increase?”
+
+     It chooses the merge with least increase in variance.
+
+***************************************************************************************************
+
+problem:Combining different clusterings as a group with differnt data solved by dendogram to find out how many clustering in dataset
+sol:  Instead of forcing clusters immediately, it:
+      builds clusters gradually.
+      It keeps merging similar data step-by-step and records every merge.
+      That record becomes the Dendrogram.
+
+      👉 “These two groups were similar enough, so they were merged.”
+
+        The height of the merge is VERY IMPORTANT.
+
+        Low height → very similar data
+
+        High height → very different data
+
+
+        process:  Hierarchical clustering will:(use euclidean distance)
+
+                  First join points inside A,Then inside B,Then inside C ,MUCH later → join A with B or C
+
+*******************************************************************************************************
+
+Threshold technique:
+       After hierarchical clustering, we get a dendrogram (tree diagram).
+Now the problem:
+
+Where should we stop merging clusters?
+
+We solve this using a threshold value (cut-off distance).
+
+A threshold is simply a horizontal line drawn across the dendrogram.the line is the longest line 
+below wich no horizontal lines should be passed and on longest line draw a horizontal line middle on how many
+points it passes it is the number of clusters
+
+---------------------------------------------------------------------------------------------------
+What the Threshold Means
+
+It is a maximum allowed distance (dissimilarity) between data points inside a cluster.
+
+If two groups merge below the threshold → they are similar → keep them in same cluster
+
+If they merge above the threshold → they are too different → separate clusters
+
+********************************************************************************************************************************
+
+#Cosine similairty:-
+
+Cosine similarity measures how similar two data objects are based on the angle between them, not their actual distance.
+
+Imagine two arrows (vectors):
+
+pointing same direction → very similar
+
+90° angle → unrelated
+
+opposite direction → completely different
+-------------------------------------------------------------------------------
+
+Note: 
+Euclidean = distance(says different)
+Cosine = direction(says similar)
+  
